@@ -749,3 +749,62 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: var(--text-muted);
 }
+
+/* ===== 3D View Controls ===== */
+.view-controls {
+  position: absolute;
+  top: var(--space-md);
+  left: var(--space-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  z-index: 10;
+}
+
+.camera-info {
+  display: flex;
+  gap: var(--space-md);
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(8px);
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--radius-sm);
+  font-size: 11px;
+  font-family: 'Roboto Mono', monospace;
+  color: var(--text-secondary);
+}
+
+.camera-info span {
+  color: var(--accent-primary);
+}
+
+.view-presets,
+.view-toggles {
+  display: flex;
+  gap: var(--space-xs);
+}
+
+.view-presets button,
+.view-toggles button {
+  padding: var(--space-xs) var(--space-sm);
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  color: var(--text-secondary);
+  font-size: 11px;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.view-presets button:hover,
+.view-toggles button:hover {
+  background: rgba(99, 102, 241, 0.2);
+  border-color: var(--accent-primary);
+  color: var(--text-primary);
+}
+
+.view-toggles button.active {
+  background: var(--accent-primary);
+  border-color: var(--accent-primary);
+  color: white;
+}
