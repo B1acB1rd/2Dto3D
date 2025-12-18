@@ -73,8 +73,13 @@ function App() {
             const result = await response.json()
 
             setJobId(result.job_id)
-            setModelUrl(`${API_BASE}${result.model_url}`)
-            setDepthPreviewUrl(`${API_BASE}${result.depth_preview_url}`)
+            // Only set model URL if it exists (null in manual mode initially)
+            if (result.model_url) {
+                setModelUrl(`${API_BASE}${result.model_url}`)
+            }
+            if (result.depth_preview_url) {
+                setDepthPreviewUrl(`${API_BASE}${result.depth_preview_url}`)
+            }
             setModelStats({
                 ...result.metadata,
                 mode: result.mode,
@@ -110,8 +115,12 @@ function App() {
             const result = await response.json()
 
             // Update model URL with timestamp to force refresh
-            setModelUrl(`${API_BASE}${result.model_url}?t=${Date.now()}`)
-            setDepthPreviewUrl(`${API_BASE}${result.depth_preview_url}?t=${Date.now()}`)
+            if (result.model_url) {
+                setModelUrl(`${API_BASE}${result.model_url}?t=${Date.now()}`)
+            }
+            if (result.depth_preview_url) {
+                setDepthPreviewUrl(`${API_BASE}${result.depth_preview_url}?t=${Date.now()}`)
+            }
             setModelStats(prev => ({
                 ...prev,
                 agentEdits: result.total_edits
@@ -135,8 +144,12 @@ function App() {
         }
 
         // Update model and depth preview
-        setModelUrl(`${API_BASE}${result.model_url}?t=${Date.now()}`)
-        setDepthPreviewUrl(`${API_BASE}${result.depth_preview_url}?t=${Date.now()}`)
+        if (result.model_url) {
+            setModelUrl(`${API_BASE}${result.model_url}?t=${Date.now()}`)
+        }
+        if (result.depth_preview_url) {
+            setDepthPreviewUrl(`${API_BASE}${result.depth_preview_url}?t=${Date.now()}`)
+        }
     }, [])
 
     // Handle export

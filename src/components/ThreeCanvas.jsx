@@ -1,6 +1,7 @@
 import { Canvas } from '@react-three/fiber'
-import { OrbitControls, Environment, useGLTF, Grid, Html, useProgress } from '@react-three/drei'
-import { Suspense } from 'react'
+import { OrbitControls, useGLTF, Grid, Html, useProgress } from '@react-three/drei'
+import { Suspense, useEffect } from 'react'
+import * as THREE from 'three'
 
 // Loading indicator component
 function Loader() {
@@ -20,9 +21,33 @@ function Loader() {
     )
 }
 
+// Error boundary for GLB loading
+function ModelError() {
+    return (
+        <Html center>
+            <div style={{
+                color: '#ef4444',
+                fontSize: '14px',
+                background: 'rgba(0,0,0,0.7)',
+                padding: '12px 24px',
+                borderRadius: '8px'
+            }}>
+                Failed to load 3D model
+            </div>
+        </Html>
+    )
+}
+
 // 3D Model component
 function Model({ url }) {
-    const { scene } = useGLTF(url)
+    const { scene } = useGLTF(url, true)
+
+    useEffect(() => {
+        // Dispose of the model when component unmounts
+        return () => {
+            useGLTF.preload(url)
+        }
+    }, [url])
 
     return (
         <primitive
@@ -35,6 +60,21 @@ function Model({ url }) {
 
 // Main Three.js canvas component
 function ThreeCanvas({ modelUrl }) {
+    // Don't render if no valid URL
+    if (!modelUrl || modelUrl.includes('null')) {
+        return (
+            <div style={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                height: '100%',
+                color: 'var(--text-muted)'
+            }}>
+                <p>Waiting for model...</p>
+            </div>
+        )
+    }
+
     return (
         <Canvas
             camera={{
@@ -44,25 +84,43 @@ function ThreeCanvas({ modelUrl }) {
                 far: 100
             }}
             style={{ width: '100%', height: '100%' }}
-            gl={{ antialias: true, alpha: false }}
+            gl={{
+                antialias: true,
+                alpha: false,
+                powerPreference: 'high-performance',
+                // Handle context loss gracefully
+                failIfMajorPerformanceCaveat: false
+            }}
+            onCreated={({ gl }) => {
+                // Handle WebGL context loss
+                gl.domElement.addEventListener('webglcontextlost', (e) => {
+                    e.preventDefault()
+                    console.warn('WebGL context lost')
+                })
+                gl.domElement.addEventListener('webglcontextrestored', () => {
+                    console.log('WebGL context restored')
+                })
+            }}
         >
             {/* Background color */}
             <color attach="background" args={['#0a0a0f']} />
 
-            {/* Lighting */}
-            <ambientLight intensity={0.5} />
+            {/* Lighting - no external HDRI needed */}
+            <ambientLight intensity={0.6} />
             <directionalLight
                 position={[5, 10, 5]}
-                intensity={1}
+                intensity={1.2}
                 castShadow
             />
             <directionalLight
                 position={[-5, 5, -5]}
-                intensity={0.3}
+                intensity={0.4}
             />
-
-            {/* Environment map for realistic reflections */}
-            <Environment preset="city" />
+            <hemisphereLight
+                color="#ffffff"
+                groundColor="#444444"
+                intensity={0.5}
+            />
 
             {/* Grid helper */}
             <Grid
@@ -80,7 +138,7 @@ function ThreeCanvas({ modelUrl }) {
 
             {/* 3D Model with loading suspense */}
             <Suspense fallback={<Loader />}>
-                {modelUrl && <Model url={modelUrl} />}
+                <Model url={modelUrl} />
             </Suspense>
 
             {/* Orbit controls for camera navigation */}
