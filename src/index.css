@@ -808,3 +808,325 @@ body {
   border-color: var(--accent-primary);
   color: white;
 }
+
+/* ===== Responsive - Tablet (768px) ===== */
+@media (max-width: 1024px) {
+  .sidebar {
+    width: 320px;
+  }
+
+  .logo h1 {
+    font-size: 20px;
+  }
+
+  .control-group {
+    margin-bottom: var(--space-md);
+  }
+}
+
+/* ===== Responsive - Mobile (768px and below) ===== */
+@media (max-width: 768px) {
+  .app {
+    flex-direction: column;
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  .sidebar {
+    width: 100%;
+    height: auto;
+    max-height: 45vh;
+    border-right: none;
+    border-bottom: 1px solid var(--border-subtle);
+    overflow-y: auto;
+  }
+
+  .sidebar-header {
+    padding: var(--space-sm) var(--space-md);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: var(--bg-secondary);
+  }
+
+  .logo-icon {
+    width: 36px;
+    height: 36px;
+    font-size: 18px;
+  }
+
+  .logo h1 {
+    font-size: 18px;
+  }
+
+  .logo p {
+    font-size: 10px;
+  }
+
+  .sidebar-content {
+    padding: var(--space-sm) var(--space-md);
+    gap: var(--space-sm);
+  }
+
+  .canvas-container {
+    flex: 1;
+    min-height: 55vh;
+  }
+
+  /* Mode selector mobile */
+  .mode-tabs {
+    gap: 2px;
+    padding: 2px;
+  }
+
+  .mode-tab {
+    padding: var(--space-xs);
+    gap: 2px;
+  }
+
+  .mode-icon {
+    font-size: 16px;
+  }
+
+  .mode-name {
+    font-size: 9px;
+  }
+
+  .mode-description {
+    display: none;
+  }
+
+  /* Image uploader mobile */
+  .upload-area {
+    min-height: 100px;
+    padding: var(--space-md);
+  }
+
+  .upload-icon {
+    font-size: 24px;
+    margin-bottom: var(--space-xs);
+  }
+
+  .upload-area h3 {
+    font-size: 14px;
+  }
+
+  .upload-area p {
+    font-size: 11px;
+  }
+
+  /* Controls mobile */
+  .control-group {
+    margin-bottom: var(--space-sm);
+  }
+
+  .control-label {
+    font-size: 11px;
+    margin-bottom: 4px;
+  }
+
+  .slider {
+    height: 6px;
+  }
+
+  .slider::-webkit-slider-thumb {
+    width: 16px;
+    height: 16px;
+  }
+
+  .btn {
+    padding: var(--space-sm) var(--space-md);
+    font-size: 13px;
+  }
+
+  /* Depth preview mobile */
+  .depth-preview {
+    padding: var(--space-sm);
+  }
+
+  .depth-preview h4 {
+    font-size: 12px;
+    margin-bottom: var(--space-xs);
+  }
+
+  .depth-preview img {
+    max-height: 80px;
+  }
+
+  /* Status bar mobile */
+  .status-bar {
+    padding: var(--space-xs) var(--space-md);
+  }
+
+  .status-bar span {
+    font-size: 10px;
+  }
+
+  /* View controls mobile */
+  .view-controls {
+    top: var(--space-sm);
+    left: var(--space-sm);
+    gap: var(--space-xs);
+  }
+
+  .camera-info {
+    padding: var(--space-xs) var(--space-sm);
+    font-size: 9px;
+    gap: var(--space-sm);
+  }
+
+  .view-presets button,
+  .view-toggles button {
+    padding: 4px 8px;
+    font-size: 10px;
+  }
+
+  /* Manual tools mobile */
+  .manual-tools {
+    padding: var(--space-sm);
+  }
+
+  .manual-tools h4 {
+    font-size: 12px;
+    margin-bottom: var(--space-sm);
+  }
+
+  .tool-buttons {
+    gap: 4px;
+  }
+
+  .tool-btn {
+    padding: var(--space-xs);
+  }
+
+  .tool-btn span:first-child {
+    font-size: 14px;
+  }
+
+  .tool-btn span:last-child {
+    font-size: 8px;
+  }
+
+  /* Agent panel mobile */
+  .agent-panel {
+    padding: var(--space-sm);
+  }
+
+  .agent-header h4 {
+    font-size: 12px;
+  }
+
+  .agent-log {
+    max-height: 100px;
+  }
+
+  /* Loading overlay mobile */
+  .loading-text {
+    font-size: 16px;
+  }
+
+  .loading-progress {
+    font-size: 12px;
+  }
+
+  /* Empty state mobile */
+  .empty-icon {
+    font-size: 48px;
+    margin-bottom: var(--space-md);
+  }
+
+  .empty-state h2 {
+    font-size: 18px;
+  }
+
+  .empty-state p {
+    font-size: 13px;
+  }
+}
+
+/* ===== Responsive - Small Mobile (480px and below) ===== */
+@media (max-width: 480px) {
+  .sidebar {
+    max-height: 50vh;
+  }
+
+  .sidebar-header {
+    padding: var(--space-xs) var(--space-sm);
+  }
+
+  .logo-icon {
+    width: 32px;
+    height: 32px;
+    font-size: 16px;
+  }
+
+  .logo h1 {
+    font-size: 16px;
+  }
+
+  .sidebar-content {
+    padding: var(--space-xs) var(--space-sm);
+  }
+
+  .mode-tab {
+    padding: 4px;
+  }
+
+  .mode-icon {
+    font-size: 14px;
+  }
+
+  .mode-name {
+    font-size: 8px;
+  }
+
+  .upload-area {
+    min-height: 80px;
+    padding: var(--space-sm);
+  }
+
+  .upload-icon {
+    font-size: 20px;
+  }
+
+  .upload-area h3 {
+    font-size: 12px;
+  }
+
+  .btn {
+    padding: 8px 12px;
+    font-size: 12px;
+  }
+
+  .view-presets,
+  .view-toggles {
+    flex-wrap: wrap;
+  }
+
+  .canvas-container {
+    min-height: 50vh;
+  }
+}
+
+/* ===== Touch Improvements ===== */
+@media (hover: none) and (pointer: coarse) {
+
+  .btn,
+  .tool-btn,
+  .mode-tab,
+  .view-presets button,
+  .view-toggles button {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  .slider::-webkit-slider-thumb {
+    width: 24px;
+    height: 24px;
+  }
+
+  .slider::-moz-range-thumb {
+    width: 24px;
+    height: 24px;
+  }
+}
