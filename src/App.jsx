@@ -286,6 +286,20 @@ function App() {
                         </span>
                     </div>
                 </div>
+
+                {/* Footer */}
+                <footer className="sidebar-footer">
+                    <div className="footer-links">
+                        <a href="https://b1acb1rd.netlify.app/" target="_blank" rel="noopener noreferrer">Owner</a>
+                        <span className="footer-divider">·</span>
+                        <a href="https://b1acb1rd-corp.vercel.app/" target="_blank" rel="noopener noreferrer">B1ACB1RD Corp</a>
+                        <span className="footer-divider">·</span>
+                        <a href="/terms">Terms</a>
+                        <span className="footer-divider">·</span>
+                        <a href="/privacy">Privacy</a>
+                    </div>
+                    <p className="footer-copyright">© 2024 B1ACB1RD Corp. All rights reserved.</p>
+                </footer>
             </aside>
 
             {/* 3D Canvas */}
