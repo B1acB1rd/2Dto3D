@@ -180,7 +180,7 @@ function ThreeCanvas({ modelUrl }) {
             <div className="view-controls">
                 {/* Camera Position Display */}
                 <div className="camera-info">
-                    <span>📍 X: {cameraPos.x}</span>
+                    <span>X: {cameraPos.x}</span>
                     <span>Y: {cameraPos.y}</span>
                     <span>Z: {cameraPos.z}</span>
                 </div>
@@ -207,7 +207,7 @@ function ThreeCanvas({ modelUrl }) {
                         className={autoRotate ? 'active' : ''}
                         title="Auto Rotate"
                     >
-                        🔄 Rotate
+                        Rotate
                     </button>
                 </div>
             </div>

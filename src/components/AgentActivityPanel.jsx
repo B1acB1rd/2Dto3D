@@ -41,20 +41,20 @@ function AgentActivityPanel({ jobId, isRunning, onRunAgent, apiBase = '' }) {
 
     const getToolIcon = (tool) => {
         const icons = {
-            'view_3d_map': '🔍',
-            'analyze_regions': '📊',
-            'edit_height': '✏️',
-            'smooth_area': '🔧',
-            'flatten_region': '📐',
-            'finish_editing': '✅'
+            'view_3d_map': '',
+            'analyze_regions': '',
+            'edit_height': '',
+            'smooth_area': '',
+            'flatten_region': '',
+            'finish_editing': ''
         }
-        return icons[tool] || '🔧'
+        return icons[tool] || ''
     }
 
     return (
         <div className="agent-panel">
             <div className="agent-header">
-                <h4>🤖 AI Agent</h4>
+                <h4>AI Agent</h4>
                 {jobId && (
                     <button
                         className="btn btn-small btn-secondary"

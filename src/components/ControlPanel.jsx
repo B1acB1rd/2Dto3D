@@ -56,12 +56,12 @@ function ControlPanel({
                 >
                     {isConverting ? (
                         <>
-                            <span style={{ animation: 'spin 1s linear infinite', display: 'inline-block' }}>⚙️</span>
+                            <span style={{ animation: 'spin 1s linear infinite', display: 'inline-block' }}></span>
                             Converting...
                         </>
                     ) : (
                         <>
-                            ✨ Convert to 3D
+                            Convert to 3D
                         </>
                     )}
                 </button>

@@ -13,9 +13,9 @@ function ManualEditTools({ jobId, onEditApplied, disabled, apiBase = '' }) {
     const [region, setRegion] = useState({ x: 40, y: 40, width: 20, height: 20 })
 
     const tools = [
-        { id: 'paint', icon: '🎨', label: 'Paint Height', desc: 'Raise or lower terrain' },
-        { id: 'smooth', icon: '🔧', label: 'Smooth', desc: 'Smooth rough areas' },
-        { id: 'flatten', icon: '📐', label: 'Flatten', desc: 'Make area flat' }
+        { id: 'paint', label: 'Paint Height', desc: 'Raise or lower terrain' },
+        { id: 'smooth', label: 'Smooth', desc: 'Smooth rough areas' },
+        { id: 'flatten', label: 'Flatten', desc: 'Make area flat' }
     ]
 
     const applyEdit = async () => {
@@ -69,7 +69,7 @@ function ManualEditTools({ jobId, onEditApplied, disabled, apiBase = '' }) {
 
     return (
         <div className="manual-tools">
-            <h4>✏️ Editing Tools</h4>
+            <h4>Editing Tools</h4>
 
             {/* Tool Selection */}
             <div className="tool-buttons">
@@ -81,7 +81,7 @@ function ManualEditTools({ jobId, onEditApplied, disabled, apiBase = '' }) {
                         disabled={disabled}
                         title={tool.desc}
                     >
-                        <span>{tool.icon}</span>
+
                         <span>{tool.label}</span>
                     </button>
                 ))}

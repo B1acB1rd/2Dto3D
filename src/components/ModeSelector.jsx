@@ -8,9 +8,9 @@ import { useState } from 'react'
  */
 function ModeSelector({ mode, setMode, disabled }) {
     const modes = [
-        { id: 'automatic', icon: '🤖', label: 'Automatic', desc: 'Engine works alone' },
-        { id: 'ai-assisted', icon: '🤝', label: 'AI-Assisted', desc: 'Agent helps improve' },
-        { id: 'manual', icon: '✋', label: 'Manual', desc: 'You edit directly' }
+        { id: 'automatic', label: 'Automatic', desc: 'Engine works alone' },
+        { id: 'ai-assisted', label: 'AI-Assisted', desc: 'Agent helps improve' },
+        { id: 'manual', label: 'Manual', desc: 'You edit directly' }
     ]
 
     return (
@@ -25,7 +25,7 @@ function ModeSelector({ mode, setMode, disabled }) {
                         disabled={disabled}
                         title={m.desc}
                     >
-                        <span className="mode-icon">{m.icon}</span>
+
                         <span className="mode-name">{m.label}</span>
                     </button>
                 ))}

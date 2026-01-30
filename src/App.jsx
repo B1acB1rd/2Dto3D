@@ -171,7 +171,7 @@ function App() {
             <aside className="sidebar">
                 <div className="sidebar-header">
                     <div className="logo">
-                        <div className="logo-icon">🗺️</div>
+                        <div className="logo-icon"></div>
                         <div className="logo-text">
                             <h1>Map to 3D</h1>
                             <p>AI-Powered Terrain Generator</p>
